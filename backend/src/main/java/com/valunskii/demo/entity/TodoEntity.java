@@ -1,23 +1,37 @@
 package com.valunskii.demo.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "todos")
 public class TodoEntity {
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "object_id")
+    private Integer id;
+
+    @Column(name = "description")
     private String description;
 
     public TodoEntity() {
 
     }
 
-    public TodoEntity(Long id, String description) {
+    public TodoEntity(Integer id, String description) {
         this.id = id;
         this.description = description;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
